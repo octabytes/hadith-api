@@ -35,3 +35,10 @@ Run API
 Open in browser
 
 [http://localhost:5000/v1/welcome](http://localhost:5000/v1/welcome)
+
+TODO list
+
+1. Get hadith by id number
+2. Get hadith by book number
+3. Get all books of Hadith
+4. Get all hadiths of single book
