@@ -1,0 +1,30 @@
+{
+  "name": "hadith-api",
+  "version": "1.0.0",
+  "description": "NodeJS Hadith APIs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "watch": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octabytes/hadith-api.git"
+  },
+  "author": "OctaByte",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/octabytes/hadith-api/issues"
+  },
+  "homepage": "https://github.com/octabytes/hadith-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "fireo": "^1.0.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
