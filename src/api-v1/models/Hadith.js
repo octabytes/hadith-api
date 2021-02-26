@@ -3,6 +3,7 @@ const { Model, Field } = require("fireo");
 class Hadith extends Model {
   id = Field.ID();
   hadith_number = Field.Number();
+  international_number = Field.Number();
   book_number = Field.Number();
   book_name = Field.Map();
   chapter = Field.Map();
