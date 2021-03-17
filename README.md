@@ -57,3 +57,19 @@ Open in browser
 #### Limit the result
 
 `http://localhost:5000/v1/:collection/book/:book_number?limit=:number`
+
+# Import local data to remote Firestore
+
+`gsutil -m cp -r ./cache gs://islamicnet.appspot.com`
+
+```json
+{
+  "serve": "yarn build && firebase emulators:start --only functions,firestore --import=./firestore_export",
+  "db:update-local-from-remote": "yarn db:backup-remote && gsutil -m cp -r gs://my-firebase-bucket.appspot.com/firestore_export .",
+  "db:update-remote-from-local": "yarn db:backup-local && yarn db:backup-remote && gsutil -m cp -r ./firestore_export gs://my-firebase-bucket.appspot.com && yarn run db:import-remote",
+  "db:import-remote": "gcloud firestore import gs://my-firebase-bucket.appspot.com/firestore_export",
+  "db:backup-local": "firebase emulators:export --force .",
+  "db:rename-remote-backup-folder": "gsutil mv gs://my-firebase-bucket.appspot.com/firestore_export gs://my-firebase-bucket.appspot.com/firestore_export_$(date +%d-%m-%Y-%H-%M)",
+  "db:backup-remote": "yarn db:rename-remote-backup-folder && gcloud firestore export gs://my-firebase-bucket.appspot.com/firestore_export"
+}
+```
